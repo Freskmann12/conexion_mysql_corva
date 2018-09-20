@@ -11,7 +11,8 @@ public class Conexion_mysql_corva {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      
+      conexion objconex = new conexion();
+      objconex.conectar();
     }
     
 }
