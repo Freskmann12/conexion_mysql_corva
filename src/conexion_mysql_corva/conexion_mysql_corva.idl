@@ -1,3 +1,10 @@
 module conexion_mysql_corva{
     interface conexion_mysql_corva{
-        boolean insertar conexion_mysql_corva(in wstring nombre,)
+        boolean insertarconexion_mysql_corva(in wstring nombre,in wstring apellido, in wstring telefono);
+        boolean actualizarconexion_mysql_corva(in long id, in wstring nombre,in wstring apellido, in wstring telefono);
+        boolean eliminarconexion_mysql_corva(in long id);
+        wstring consultarconexion_mysql_corva(in long id);
+
+        oneway void shoutdown();
+        };
+     };   
