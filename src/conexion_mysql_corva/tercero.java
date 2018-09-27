@@ -23,8 +23,27 @@ public class tercero extends corvaPOA{
 
     @Override
     public String consultarcorva(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String resultado ="";
+        
+        try {
+            String sqlConsultar ="Select * from conexion_mysql_corva where id ="+id;
+            objConec.conectar();
+            Statement st = objConec.conex.createStatement();
+            ResultSet rs = st.executeQuery(sqlConsultar);
+            while(rs.next()){
+                resultado += rs.getString(2)+ "_"
+                        +rs.getString(3)+"_"
+                        +rs.getString(4);
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return resultado;
+   
     }
+    
 
     @Override
     public void shoutdown() {
