@@ -1,0 +1,3 @@
+module conexion_mysql_corva{
+    interface conexion_mysql_corva{
+        boolean insertar conexion_mysql_corva(in wstring nombre,)
