@@ -1,8 +1,10 @@
 
 package conexion_mysql_corva;
+import conexion_mysql_corva.conexion_mysql_corva.corvaPOA;
 import java.sql.*;
 
 import conexion_mysql_corva.tercero.*;
+import javax.swing.JOptionPane;
 public class tercero extends corvaPOA{
     conexion objConec = new conexion();
 
@@ -45,9 +47,21 @@ public class tercero extends corvaPOA{
     }
     
 
-    @Override
     public void shoutdown() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public ResultSet cargarTercero(){
+        ResultSet resultado = null;
+        try {
+            String sql = "Select nombre, apellido, telefono from conexion_mysql_corva";
+            objConec.conectar();
+            Statement st = objConec.conex.createStatement();
+            resultado = st.executeQuery(sql);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error: "+ e.getMessage());
+        }
+        return resultado;
     }
     
     
